@@ -106,12 +106,21 @@
       <!-- Products and Carts -->
       <section class="grid grid-cols-12 gap-6 w-11/12 mx-auto">
         <!-- Products Main Container -->
-        <section id="products-container" class="col-span-9 space-y-10">
+        <section
+          id="products-container"
+          class="col-span-12 xl:col-span-9 space-y-10"
+        >
           <!-- Products Container 1 -->
           <div>
-            <h3 class="text-4xl font-semibold text-[#111111] mb-7">Kitchen</h3>
+            <h3
+              class="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#111111] mb-7"
+            >
+              Kitchen
+            </h3>
             <!-- Product Card Container -->
-            <div class="card-container grid grid-cols-3 gap-4">
+            <div
+              class="card-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"
+            >
               <!-- Card-1 -->
               <div class="card bg-base-100 shadow-sm p-5">
                 <figure class="bg-[#1111110d] p-7">
@@ -203,11 +212,15 @@
 
           <!-- Products Container 2 -->
           <div>
-            <h3 class="text-4xl font-semibold text-[#111111] mb-7">
+            <h3
+              class="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#111111] mb-7"
+            >
               Sportswear
             </h3>
             <!-- Product Card Container -->
-            <div class="card-container grid grid-cols-3 gap-4">
+            <div
+              class="card-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"
+            >
               <!-- Card-1 -->
               <div class="card bg-base-100 shadow-sm p-5">
                 <figure class="bg-[#1111110d] p-7">
@@ -299,11 +312,15 @@
 
           <!-- Products Container 3 -->
           <div>
-            <h3 class="text-4xl font-semibold text-[#111111] mb-7">
+            <h3
+              class="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#111111] mb-7"
+            >
               Furniture
             </h3>
             <!-- Product Card Container -->
-            <div class="card-container grid grid-cols-3 gap-4">
+            <div
+              class="card-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"
+            >
               <!-- Card-1 -->
               <div class="card bg-base-100 shadow-sm p-5">
                 <figure class="bg-[#1111110d] p-7">
@@ -395,7 +412,7 @@
         </section>
 
         <!-- Cart Container -->
-        <aside class="col-span-3">
+        <aside class="col-span-3 hidden xl:block">
           <!-- Coupon Area -->
           <div class="bg-white p-4 rounded-md mt-[67px]">
             <h5 class="mb-2 font-semibold text-lg">Have a Coupon?</h5>
