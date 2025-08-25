@@ -41,6 +41,9 @@ function makeCartCard(obj) {
   return newCard;
 }
 
+// Add Cart Items
+// Calculates total cart price
+// Calculate total cart quantity
 function addToCart(e) {
   const target = e.target;
   const cartBtn = target.className.includes("card-cart-btn");
@@ -63,6 +66,9 @@ function addToCart(e) {
   }
 }
 
+// Remove Cart Items
+// Calculates total remove cart price
+// Calculate total remove cart quantity
 function removeCartItem(e) {
   const target = e.target;
   const removeBtn = target.closest(".remove-cart-btn");
