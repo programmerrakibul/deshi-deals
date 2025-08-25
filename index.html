@@ -34,7 +34,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
   <body class="font-['work_sans'] font-normal text-base bg-[#F8F8F8] min-h-dvh">
-    <header class="min-h-dvh bg-white">
+    <header class="bg-white">
       <!-- Nav Area -->
       <nav class="py-3 lg:py-6 border-b border-[#00000040]">
         <div
@@ -65,6 +65,7 @@
       <!-- Banner Area -->
       <div class="bg-gradient-to-b from-white from-0% to-[#F6DDEA] to-100%">
         <div class="w-11/12 mx-auto">
+          <!-- Banner Text Content -->
           <div class="pt-12 md:pt-16 pb-6">
             <h1
               class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:text-center"
@@ -87,15 +88,21 @@
               </button>
             </div>
           </div>
-          <figure class="mt-7 hidden sm:block">
-            <img src="./assets/hero-bg.png" alt="" />
+
+          <!-- Banner Image Content -->
+          <figure class="hidden sm:block mt-20">
+            <img
+              src="./assets/hero-bg.png"
+              alt=""
+              class="relative -bottom-28"
+            />
           </figure>
         </div>
       </div>
     </header>
 
     <!-- Main Contents -->
-    <main>
+    <main class="mt-10 md:mt-32">
       <!-- Products and Carts -->
       <section class="grid grid-cols-12 gap-6 w-11/12 mx-auto">
         <!-- Products Main Container -->
