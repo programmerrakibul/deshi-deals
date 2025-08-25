@@ -12,6 +12,8 @@ function strToNumber(el) {
 
 const productContainer = getEl("#products-container");
 const cartItemContainer = getEl("#cart-item-container");
+const cartQuantityEl = getEl("#cart-quantity");
+const cartPriceEl = getEl("#total-cart-price");
 
 // Function for create cards
 function makeCartCard(obj) {
@@ -19,7 +21,8 @@ function makeCartCard(obj) {
 
   // Creating a new card for cart container
   const newCard = document.createElement("div");
-  newCard.className = "flex items-center bg-[#F4F1F1] p-2 rounded-sm";
+  newCard.className =
+    "flex items-center gap-1 bg-[#F4F1F1] p-2 rounded-sm cart-card-item";
   newCard.innerHTML = `
                 <img
                   class="h-16 w-16 object-contain rounded-lg mr-4"
@@ -28,12 +31,10 @@ function makeCartCard(obj) {
                 />
                 <div class="flex-1">
                   <h2 class="font-semibold">${title}</h2>
-                  <span class="text-gray-500 text-sm">$${price}</span>
+                  <p class="text-gray-500 text-sm">$<span class="cart-item-price">${price}</span></p>
                 </div>
-                <button class="text-gray-500 hover:text-red-500">
-                  <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
-                    <path d="M19 13H5v-2h14v2z" />
-                  </svg>
+                <button class="text-gray-500 hover:text-red-500 remove-cart-btn">
+                  <i class="fa-solid fa-minus"></i>
                 </button>
   `;
 
@@ -49,9 +50,7 @@ function addToCart(e) {
     const title = container.children[1].children[1].textContent;
     const price = container.children[1].children[2].children[0].textContent;
     const card = { imgSrc, title, price };
-    const cartQuantityEl = getEl("#cart-quantity");
     const cartQuantity = strToNumber(cartQuantityEl);
-    const cartPriceEl = getEl("#total-cart-price");
     const cartPrice = strToNumber(cartPriceEl);
     const itemPrice = Number(price);
     const totalQuantity = cartQuantity + 1;
@@ -64,4 +63,24 @@ function addToCart(e) {
   }
 }
 
+function removeCartItem(e) {
+  const target = e.target;
+  const removeBtn = target.closest(".remove-cart-btn");
+  if (removeBtn) {
+    const card = target.closest(".cart-card-item");
+    const priceEl = card.querySelector(".cart-item-price");
+    const price = strToNumber(priceEl);
+    const cartQuantity = strToNumber(cartQuantityEl);
+    const cartPrice = strToNumber(cartPriceEl);
+
+    const totalQuantity = cartQuantity - 1;
+    const totalPrice = cartPrice - price;
+    cartQuantityEl.textContent = totalQuantity;
+    cartPriceEl.textContent = totalPrice.toFixed(2);
+
+    card.remove();
+  }
+}
+
 productContainer.addEventListener("click", addToCart);
+cartItemContainer.addEventListener("click", removeCartItem);
