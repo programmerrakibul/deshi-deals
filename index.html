@@ -35,9 +35,9 @@
     <!-- Products and Carts -->
     <section class="grid grid-cols-12 gap-6 w-11/12 mx-auto">
       <!-- Products Main Container -->
-      <section class="col-span-9">
+      <section id="products-container" class="col-span-9">
         <!-- Products Container 1 -->
-        <div class="products-container">
+        <div>
           <h3 class="text-4xl font-semibold text-[#111111] mb-7">Kitchen</h3>
           <!-- Product Card Container -->
           <div class="card-container grid grid-cols-3 gap-4">
@@ -155,8 +155,11 @@
             </div>
 
             <!-- Cart Items Container -->
-            <div class="p-4 space-y-3 max-h-[470px] overflow-y-auto">
-              <div class="flex items-center bg-[#F4F1F1] p-2 rounded-sm">
+            <div
+              id="cart-item-container"
+              class="p-4 space-y-3 max-h-[470px] overflow-y-auto"
+            >
+              <!-- <div class="flex items-center bg-[#F4F1F1] p-2 rounded-sm">
                 <img
                   class="h-16 w-16 object-contain rounded-lg mr-4"
                   src="./assets/kitchen-1.png"
@@ -171,7 +174,7 @@
                     <path d="M19 13H5v-2h14v2z" />
                   </svg>
                 </button>
-              </div>
+              </div> -->
             </div>
 
             <!-- Total Cart Item Price Area -->
