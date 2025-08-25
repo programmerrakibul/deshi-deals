@@ -58,7 +58,6 @@ function addToCart(e) {
     const totalPrice = cartPrice + itemPrice;
     cartQuantityEl.textContent = totalQuantity;
     cartPriceEl.textContent = totalPrice.toFixed(2);
-    console.log(itemPrice);
 
     const addCard = makeCartCard(card);
     cartItemContainer.append(addCard);
