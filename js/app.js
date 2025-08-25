@@ -14,6 +14,9 @@ const productContainer = getEl("#products-container");
 const cartItemContainer = getEl("#cart-item-container");
 const cartQuantityEl = getEl("#cart-quantity");
 const cartPriceEl = getEl("#total-cart-price");
+const cartContainer = getEl("#cart-container");
+const cartShowBtn = getEl("#cart-show-btn");
+const cartHideBtn = getEl("#cart-close-btn");
 
 // Function for create cards
 function makeCartCard(obj) {
@@ -88,5 +91,25 @@ function removeCartItem(e) {
   }
 }
 
+// Making cart container visible with this function
+// It replaces some tailwind classes from cart container
+function showCartContainer() {
+  cartContainer.classList.replace("left-[99999px]", "right-0");
+  cartContainer.classList.replace("opacity-0", "opacity-100");
+  cartContainer.classList.replace("invisible", "visible");
+  cartContainer.ariaHidden = "false";
+  console.log(cartContainer.getAttribute("aria-hidden"));
+}
+
+function hideCartContainer() {
+  cartContainer.classList.replace("right-0", "left-[99999px]");
+  cartContainer.classList.replace("opacity-100", "opacity-0");
+  cartContainer.classList.replace("visible", "invisible");
+  cartContainer.ariaHidden = "true";
+  console.log(cartContainer.getAttribute("aria-hidden"));
+}
+
 productContainer.addEventListener("click", addToCart);
 cartItemContainer.addEventListener("click", removeCartItem);
+cartShowBtn.addEventListener("click", showCartContainer);
+cartHideBtn.addEventListener("click", hideCartContainer);
