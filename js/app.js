@@ -4,14 +4,18 @@ function getEl(targetStr) {
   return el;
 }
 
+// Function for Convert inner text into a number
+function strToNumber(el) {
+  const num = Number(el.textContent);
+  return num;
+}
+
 const productContainer = getEl("#products-container");
 const cartItemContainer = getEl("#cart-item-container");
 
 // Function for create cards
-function makeCartCard(parent) {
-  const imgSrc = parent.children[0].children[0].src;
-  const title = parent.children[1].children[1].textContent;
-  const price = parent.children[1].children[2].children[0].textContent;
+function makeCartCard(obj) {
+  const { imgSrc, title, price } = obj;
 
   // Creating a new card for cart container
   const newCard = document.createElement("div");
@@ -41,8 +45,23 @@ function addToCart(e) {
   const cartBtn = target.className.includes("card-cart-btn");
   if (cartBtn) {
     const container = target.closest(".card");
-    const card = makeCartCard(container);
-    cartItemContainer.append(card);
+    const imgSrc = container.children[0].children[0].src;
+    const title = container.children[1].children[1].textContent;
+    const price = container.children[1].children[2].children[0].textContent;
+    const card = { imgSrc, title, price };
+    const cartQuantityEl = getEl("#cart-quantity");
+    const cartQuantity = strToNumber(cartQuantityEl);
+    const cartPriceEl = getEl("#total-cart-price");
+    const cartPrice = strToNumber(cartPriceEl);
+    const itemPrice = Number(price);
+    const totalQuantity = cartQuantity + 1;
+    const totalPrice = cartPrice + itemPrice;
+    cartQuantityEl.textContent = totalQuantity;
+    cartPriceEl.textContent = totalPrice.toFixed(2);
+    console.log(itemPrice);
+
+    const addCard = makeCartCard(card);
+    cartItemContainer.append(addCard);
   }
 }
 
