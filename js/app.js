@@ -94,19 +94,17 @@ function removeCartItem(e) {
 // Making cart container visible with this function
 // It replaces some tailwind classes from cart container
 function showCartContainer() {
-  cartContainer.classList.replace("left-[99999px]", "right-0");
+  cartContainer.classList.replace("-right-[100%]", "right-0");
   cartContainer.classList.replace("opacity-0", "opacity-100");
   cartContainer.classList.replace("invisible", "visible");
   cartContainer.ariaHidden = "false";
-  console.log(cartContainer.getAttribute("aria-hidden"));
 }
 
 function hideCartContainer() {
-  cartContainer.classList.replace("right-0", "left-[99999px]");
+  cartContainer.classList.replace("right-0", "-right-[100%]");
   cartContainer.classList.replace("opacity-100", "opacity-0");
   cartContainer.classList.replace("visible", "invisible");
   cartContainer.ariaHidden = "true";
-  console.log(cartContainer.getAttribute("aria-hidden"));
 }
 
 productContainer.addEventListener("click", addToCart);
