@@ -91,23 +91,46 @@ function removeCartItem(e) {
   }
 }
 
+// Function for replacing classes
+// It replaces from old class to new class
+function replaceClasses(el, replacements) {
+  replacements.forEach(([oldClass, newClass]) => {
+    el.classList.replace(oldClass, newClass);
+  });
+}
+
 // Making cart container visible with this function
 // It replaces some tailwind classes from cart container
 function showCartContainer() {
-  cartContainer.classList.replace("-right-[100%]", "right-0");
-  cartContainer.classList.replace("opacity-0", "opacity-100");
-  cartContainer.classList.replace("invisible", "visible");
-  cartContainer.ariaHidden = "false";
+  const classArr = [
+    ["-right-[100%]", "right-0"],
+    ["opacity-0", "opacity-100"],
+    ["invisible", "visible"],
+  ];
+
+  replaceClasses(cartContainer, classArr);
 }
 
+// Making cart container invisible with this function
+// It replaces some tailwind classes from cart container
 function hideCartContainer() {
-  cartContainer.classList.replace("right-0", "-right-[100%]");
-  cartContainer.classList.replace("opacity-100", "opacity-0");
-  cartContainer.classList.replace("visible", "invisible");
-  cartContainer.ariaHidden = "true";
+  const classArr = [
+    ["right-0", "-right-[100%]"],
+    ["opacity-100", "opacity-0"],
+    ["visible", "invisible"],
+  ];
+
+  replaceClasses(cartContainer, classArr);
 }
 
+// Add Item to Cart Button Listener
 productContainer.addEventListener("click", addToCart);
+
+// Remove Cart Item Button Listener
 cartItemContainer.addEventListener("click", removeCartItem);
+
+// Show Cart Container Button Listener
 cartShowBtn.addEventListener("click", showCartContainer);
+
+// Remove Cart Container Button Listener
 cartHideBtn.addEventListener("click", hideCartContainer);
